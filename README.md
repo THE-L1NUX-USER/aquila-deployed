@@ -14,6 +14,7 @@
     - Type: HTTP, Protocol: TCP, Port Range: 80, Source: Anywhere
     - Type: HTTPS, Protocol: TCP, Port Range: 443, Source: Anywhere
     - Type: SSH, Protocol: TCP, Port Range: 22, Source: My IP
+    - Type: Custom UDP, Protocol: UDP, Port Range: 51820, Source: Anywhere
 11. Scroll down to `Key Pairs` and choose `Create a new key pair`.
 12. Provide a name for the key pair, for example, `my-key-pair` and choose Download Key Pair.
 13. Save the key pair file, `my-key-pair.pem`, in a secure location on your local machine.
@@ -99,7 +100,7 @@ sudo bash install-docker.sh
 
 25. Install Nginx using the following command:
 ```bash
-sudo apt -y install nginx 
+sudo apt install nginx -y
 ```
 26. To install Certbot, refer to the instructions on this link: (https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
 Run the following command to obtain the SSL certificate:
@@ -124,7 +125,7 @@ sudo rm /etc/nginx/sites-enabled/default
 Next, we will create a new configuration file for our application by running the following command:
 
 ```bash
-nano /etc/nginx/sites-available/aquila.conf
+sudo nano /etc/nginx/sites-available/aquila.conf
 ```
 Then, enter the following configuration into the file:
 
@@ -240,7 +241,7 @@ sudo ln -s /etc/nginx/sites-available/aquila.conf /etc/nginx/sites-enabled/aquil
 To test our configuration file, we will use the following command:
 
 ```
-nginx -t
+sudo nginx -t
 ```
 If the configuration is valid, Nginx will display a message saying configuration test is successful.
 
@@ -248,7 +249,10 @@ If the configuration is valid, Nginx will display a message saying configuration
 After testing the configuration, we will restart Nginx to apply the changes:
 
 ```
-sudo systemctl restart nginx
+sudo systemctl reload nginx
 ```
 Now the Nginx is configured to work with our application.
 
+### Step 7 : Docker setup
+
+33. Creating a 
