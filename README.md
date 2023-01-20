@@ -95,7 +95,9 @@ sudo bash install-docker.sh
 ## Step 4 : Configure the domain:
 
 22. Head over to your Cloudflare account where you have already configured the nameservers for the domain "attree.ml".
+
 23. Click the DNS settings of the the domain "attree.ml".
+
 24. Add a new "A" record with entry `@` add the `IP address` of the EC2 instance as the value and keep the proxy status to DNS only.
 
 ## Step 5 : Installing Nginx and Configuring Certbot:
@@ -390,7 +392,7 @@ Hit `next`.
 
 Also fill up `Adminstrative details` and choose `Default Language`.
  
- Hit `next`.
+ Hit `Save Configuration`.
 
  45. Now wait for the application to configure.
 
